@@ -81,8 +81,8 @@ Available settings:
 
   Use a custom log file for output.
 
-  By default all diagnostic information is printed to the server log. This
-  option lets you redirect output to a separate file.
+  By default diagnostic information is written to `crashdetect.log` in the
+  server working directory. Set this option to use a different path.
 
 * `long_call_time <us>`
 

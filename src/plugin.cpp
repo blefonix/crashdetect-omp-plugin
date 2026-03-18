@@ -33,6 +33,7 @@
 #include "amxpathfinder.h"
 #include "crashdetect.h"
 #include "fileutils.h"
+#include "log.h"
 #include "logprintf.h"
 #include "natives.h"
 #include "options.h"
@@ -141,7 +142,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
     std::string module =
       fileutils::GetFileName(os::GetModuleName(amx_Exec_sub));
     if (!module.empty()) {
-      logprintf("  CrashDetect must be loaded before '%s'", module.c_str());
+      LogDebugPrint("CrashDetect must be loaded before '%s'", module.c_str());
     }
     return false;
   }
@@ -171,7 +172,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
   os::SetInterruptHandler(CrashDetect::OnInterrupt);
   CrashDetect::PluginLoad();
 
-  logprintf("  CrashDetect plugin " PLUGIN_VERSION_STRING);
+  LogDebugPrint("CrashDetect plugin " PLUGIN_VERSION_STRING);
   return true;
 }
 

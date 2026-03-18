@@ -58,7 +58,7 @@ Options::Options():
     trace_filter_ = new RegExp(trace_filter_pattern);
   }
 
-  log_path_ = server_cfg.GetValueWithDefault("crashdetect_log");
+  log_path_ = server_cfg.GetValueWithDefault("crashdetect_log", "crashdetect.log");
   log_time_format_ =
     server_cfg.GetValueWithDefault("logtimeformat", "[%H:%M:%S]");
 
